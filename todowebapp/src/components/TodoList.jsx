@@ -1,10 +1,11 @@
 ﻿import React, { useState } from 'react'
 import TodoItem from './Todoitem'
+import './TodoList.css'
 
 const initialTasks = [
     { id: self.crypto.randomUUID(), text: "Drink some coffee" },
     { id: self.crypto.randomUUID(), text: "Create a todo app" },
-    { id: self.crypto.randomUUID(), text: "Drink some more coffee" }
+    { id: self.crypto.randomUUID(), text: "Drink some more tea" }
 ];
 
 function TodoList() {
