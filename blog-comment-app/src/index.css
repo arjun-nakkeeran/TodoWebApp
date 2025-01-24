@@ -8,6 +8,10 @@ body {
   background-color: #f9fef9;
 }
 
+.main-content {
+  margin: 50px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -17,22 +21,6 @@ code {
   margin: 10px;
 }
 
-.comment-container {
-  border: 1px #b5b3b3 dotted;
-}
-
 .new-comment input,textarea {
-  margin: 5px;
-}
-
-.comment-text {
-  width: 50%;
-  margin: 5px;
-}
-
-.base-element {
-  margin: 5px;
-}
-.base-element button {
   margin: 5px;
 }

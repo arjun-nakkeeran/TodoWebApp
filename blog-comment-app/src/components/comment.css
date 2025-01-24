@@ -1,0 +1,19 @@
+
+.comment-container {
+    border: 1px #b5b3b3 dotted;
+  }
+
+  .comment-text {
+    width: 50%;
+    margin: 5px;
+  }
+  
+  .base-element {
+    padding: 0 10px 10px;
+    border: 1px #b5b3b3 dotted;
+    border-radius: 0.5rem;
+  }
+
+  .base-element button {
+    margin: 5px;
+  }

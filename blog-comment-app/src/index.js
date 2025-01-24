@@ -39,18 +39,6 @@ class Article extends React.Component {
     console.debug(this.state);
   }
 
-  getComments() {
-    return this.state.comments;
-    // return [
-    //   {
-    //     Comment: "This is a interesting article",
-    //     Author: "Arjun"
-    //   },
-    //   {
-    //     Comment: "There is still room for improvement.",
-    //     Author: "Vijay"
-    //   }];
-  }
 
   render() {
  
@@ -65,8 +53,8 @@ class Article extends React.Component {
       <input type="submit" />
     </form>
     <ul>
-      { this.getComments().map((comment) => 
-        <li className="comment-container">
+      { this.state.comments().map((comment) => 
+        <li>
           <Comment model={comment} ></Comment>
         </li>)}
     </ul>

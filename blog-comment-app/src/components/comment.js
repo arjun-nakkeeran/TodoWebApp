@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './comment.css';
 
 function Comment(props) {
     
