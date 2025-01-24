@@ -1,6 +1,11 @@
 ﻿import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 function TodoItem({ task, deleteTaskCallback, moveUpCallback, moveDownCallback }) {
+    console.debug("todoitem renders");
+    useEffect(() => {
+        console.debug("todoitem UseEffect");
+    });
   return (
       <li aria-label="task">
           <span className="text">{task}</span>

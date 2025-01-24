@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+﻿import React, { useState, useCallback } from 'react'
 import TodoItem from './Todoitem'
 import './TodoList.css'
 
@@ -16,12 +16,13 @@ function TodoList() {
         setNewTaskText(event.target.value);
     }
 
-    function addTask(event) {
+    const addTask = () => {
         if (newTaskText.trim() !== "") {
+            //useCallback(() => {
             setTasks(t => [...t, { id: self.crypto.randomUUID(), text: newTaskText }]);
+            //}, [tasks]);
             setNewTaskText("");
         }
-        event.preventDefault();
     }
 
     function deleteTask(id) {
@@ -48,7 +49,7 @@ function TodoList() {
     return (
       <article className="todo-list">
         <h2>TODO</h2>
-        <form className="todo-input" aria-controls="todo-list" onSubmit={addTask}>
+        <form className="todo-input" aria-controls="todo-list">
             <input
                     type="text"
                     placeholder="Enter a task"
@@ -56,7 +57,7 @@ function TodoList() {
                     aria-label="Task Text"
                     value={newTaskText}
                     onChange={ handleInputChange} />
-            <button className="add-button" aria-label="Add task">Add</button>
+            <button className="add-button" aria-label="Add task" onClick={addTask}>Add</button>
         </form>
         <br/>
         <h3>Task List</h3>
