@@ -1,16 +1,24 @@
-﻿import React, { useState, useCallback } from 'react'
+﻿import React, { useState, useEffect } from 'react'
 import TodoItem from './Todoitem'
 import './TodoList.css'
 
 const initialTasks = [
-    { id: self.crypto.randomUUID(), text: "Drink some coffee" },
-    { id: self.crypto.randomUUID(), text: "Create a todo app" },
-    { id: self.crypto.randomUUID(), text: "Drink some more tea" }
+    { id: self.crypto.randomUUID(), title: "Drink some coffee" },
+    { id: self.crypto.randomUUID(), title: "Create a todo app" },
+    { id: self.crypto.randomUUID(), title: "Drink some more tea" }
 ];
 
 function TodoList() {
     const [tasks, setTasks] = useState(initialTasks);
     const [newTaskText, setNewTaskText] = useState("");
+
+    useEffect(() => {
+        const url = "https://jsonplaceholder.typicode.com/todos";
+        fetch(url)
+        .then((res) => res.json())
+        .then((data) => setTasks(data));
+        
+    }, []);
 
     function handleInputChange(event) {
         setNewTaskText(event.target.value);
@@ -19,7 +27,7 @@ function TodoList() {
     const addTask = () => {
         if (newTaskText.trim() !== "") {
             //useCallback(() => {
-            setTasks(t => [...t, { id: self.crypto.randomUUID(), text: newTaskText }]);
+            setTasks(t => [...t, { id: self.crypto.randomUUID(), title: newTaskText }]);
             //}, [tasks]);
             setNewTaskText("");
         }
@@ -65,7 +73,7 @@ function TodoList() {
                 {tasks.map((task, index) =>
                     <TodoItem
                         key={task.id}
-                        task={task.text}
+                        task={task.title}
                         deleteTaskCallback={() => deleteTask(task.id)}
                         moveUpCallback={() => moveTaskUp(index)}
                         moveDownCallback={ () => moveTaskDown(index)}
